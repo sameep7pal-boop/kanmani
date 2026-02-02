@@ -1,0 +1,36 @@
+const question = document.getElementById("question");
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+
+let noClicks = 0;
+
+noBtn.addEventListener("click", () => {
+  noClicks++;
+
+  if (noClicks === 1) {
+    question.innerText = "Are you sure? 😶";
+  } else if (noClicks === 2) {
+    question.innerText = "Khao maa kasam 😐";
+  } else if (noClicks === 3) {
+    question.innerText = "Kya itna bura hoon main? 🥺";
+  }
+});
+
+noBtn.addEventListener("mouseover", () => {
+  if (noClicks >= 3) {
+    const x = Math.random() * 300;
+    const y = Math.random() * 200;
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+  }
+});
+
+yesBtn.addEventListener("click", () => {
+  document.body.innerHTML = `
+    <div class="container">
+      <h1>Pinky Promise karo 🤞💖</h1>
+      <p>Will you be my Valentine? 💌</p>
+      <h2>Yaaayyy!!! 🥰❤️</h2>
+    </div>
+  `;
+});
